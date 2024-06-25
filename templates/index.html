@@ -1,0 +1,36 @@
+<html>
+    <body>
+        <div class="login">
+
+            <h1>Fire Weather Index Prediction</h1>
+
+    <!-- Main Input for receiving query to our ML Regression Model -->
+
+            <form action="{{ url_for('predict_datapoint')}}" method="POST">
+
+                <input type="text" name="Temperature" placeholder="Temperature" required="required" /> <br>
+                <input type="text" name="Relative_Humidity" placeholder="Relative_Humidity" required="required" /> <br>
+                <input type="text" name="Wind_speed" placeholder="Wind_speed" required="required" /> <br>
+                <input type="text" name="Rain" placeholder="Rain" required="required" /> <br>
+                <input type="text" name="Fine_Fuel_Moisture_Code" placeholder="Fine_Fuel_Moisture_Code" required="required" /> <br>
+                <input type="text" name="Duff_Moisture_Code" placeholder="Duff_Moisture_Code" required="required" /> <br>
+                <input type="text" name="Initial_Spread_IDX" placeholder="Initial_Spread_IDX" required="required" /> <br>
+                <input type="text" name="Classes" placeholder="Classes" required="required" /> <br>
+                <input type="text" name="Region" placeholder="Region" required="required" /> <br>
+
+
+                <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+
+            </form>
+        <h2>
+            {% if Result is not none %}
+                The FWI prediction is "{{Result}}"
+            {% endif %}
+        </h2>
+
+
+        </div>
+
+    </body>
+
+</html>
